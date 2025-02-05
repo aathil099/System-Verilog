@@ -1,0 +1,43 @@
+class Random_Sel;
+    rand bit [2:0 num];
+    constraint c { num inside {[0:4]}; }
+
+    function new();
+        tis.num = 3'd4;
+    endfunction
+endclass
+
+class Random_Num #(WIDTH = 8);
+    rand bit signed [WIDTH-1:0] num;
+endclass
+
+module alu_tb;
+    timeunit 1ns; timeprecision 1ps;
+    localparam WIDTH = 8;
+    logic [2:0] sel;
+    logic signed [WIDTH-1:0] bus_a, bus_b, alu_out;
+    logic Z;
+
+    alu #(.WIDTH(WIDTH)) dut(.*);
+
+    Random_Num #(.WIDTH(WIDTH)) A_r = new(), B_r = new();
+    Random_Sel Sel_r = new(); // Random selection  3'b001: alu_out = bus_a + bus_b;
+
+    initial begin
+        $dumpfile("dump.vcd"); 
+        $dumpvars(0,dut);
+        
+        repeat (5) begin
+            #10
+            bus_a <= A_r.num; bus_b <= B_r.num; sel <= Sel_r.num;
+            A_r.randomize();
+            B_r.randomize();
+            Sel_r.randomize();
+            #1
+        end 
+        #30 bus_a <= 8'd5; bus_b <= 8'd10; sel <= 3'b000;
+        #10 bus_a <= 8'd30; bus_b <= 8'd10; sel <= 3'b001;
+        #10 bus_a <= 8'd5; bus_b <= 8'd10; sel <= 3'b010;
+        #10 bus_a <= 8'd51; bus_b <= 8'd17; sel <= 3'b011;
+    end
+endmodule
