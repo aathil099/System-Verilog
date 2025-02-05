@@ -1,14 +1,17 @@
 module n_adder #(parameter N = 8) (
-    input logic signed [N-1:0] A,B,
-    input logic ci,
+    input  logic signed [N-1:0] A, B,
+    input  logic ci,
     output logic signed [N-1:0] S,
     output logic co
 );
-    logic C [N-1:0]; // Carry bits
-    assign C[0] = ci; // First carry bit is the carry-in bit
-    
+    logic [N:0] C; // Carry bits
+
+    assign C[0] = ci;  // First carry bit (carry-in)
+    assign co = C[N];  // Final carry-out
+
     genvar i;
-        for (i = 0; i < N; i = i + 1) begin: adder
+    generate 
+        for (i = 0; i < N; i = i + 1) begin : adder
             full_adder fa (
                 .a   (A[i]),
                 .b   (B[i]),
@@ -17,4 +20,5 @@ module n_adder #(parameter N = 8) (
                 .sum (S[i])
             );
         end
+    endgenerate
 endmodule
