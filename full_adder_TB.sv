@@ -1,5 +1,6 @@
+
 module full_adder_tb;
-  timeunit 10ns; timeprecision 1ns
+  timeunit 10ns; timeprecision 1ns;
   
   logic a=0, ci=0, b, sum, co;
   
@@ -21,7 +22,7 @@ module full_adder_tb;
          $display ("Correct. wire_1:%d", dut.wire_1);
          else $error("Incorrect. wire_1:%d", dut.wire_1);
     
-    $finish();
+    $finish(); // End the simulation
     
   end
 endmodule  

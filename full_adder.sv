@@ -9,10 +9,9 @@ module full_adder (
     assign wire_1 = a ^ b; // Sum calculation: XOR of A and B
     assign wire_2 = wire_1 & ci; // Carry-out calculation: Majority function (at least two 1's)
     
-    wire wire_3 = a & b;
+    wire wire_3 = a & b; // Carry-in calculation: AND of A and B
 
-    always_comb begin
-        
+    always_comb begin // Carry-out calculation: Majority function (at least two 1's)
         co = wire_2 | wire_3;
         sum = wire_1 ^ ci;    
     end 
