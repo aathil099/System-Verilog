@@ -5,6 +5,7 @@ module seven_segment_decoder (
 
     always_comb begin
         case (num)
+                          //gfedcba 
             4'd0 : seg = 7'b0111111; // 0
             4'd1 : seg = 7'b0000110; // 1
             4'd2 : seg = 7'b1011011; // 2
