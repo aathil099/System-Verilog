@@ -35,8 +35,7 @@ module alu_tb;
             
             A_r.randomize();
             B_r.randomize();
-            Sel_r.randomize();
-            
+            Sel_r.randomize();  
         end
 
         #30 bus_a <= 8'd5; bus_b <= 8'd10; alu_sel <= 3'b000;
