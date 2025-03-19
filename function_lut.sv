@@ -50,10 +50,11 @@ module function_lut #( parameter W_X = 4, W_Y = 8,
 
     for (i=0; i<2**W_Y; i++) begin
         assign lut_inverse_quadratic[i] = inverse_quadratic(i);
-    assign yf = lut_factorial[xf];
-    assign xiq = lut_inverse_quadratic[yiq];
-    assign yq_lut = lut_quadratic[xq];
-    assign yq_fun = quadratic(xq);
-    end
+    end    
+        assign yf = lut_factorial[xf];
+        assign xiq = lut_inverse_quadratic[yiq];
+        assign yq_lut = lut_quadratic[xq];
+        assign yq_fun = quadratic(xq);
+    
           
 endmodule    
