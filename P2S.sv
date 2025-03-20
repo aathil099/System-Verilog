@@ -22,6 +22,7 @@ module parallel_to_serial_converter #(N=8)(
     always_ff @(posedge clk or negedge rstn)
       if (!rstn) count <= 0;
       else unique case (state)
+      
       RX: begin 
         shift_reg <= par_data;
         count <= '0;
@@ -30,5 +31,5 @@ module parallel_to_serial_converter #(N=8)(
         shift_reg <= shift_reg >> 1;
         count <= count + 1'd1;
       end
-      endcase
+  endcase
 endmodule
