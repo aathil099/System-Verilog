@@ -27,7 +27,7 @@ module P2S_tb;
     @(posedge clk) #1 ser_ready <= 0;
     #(CLK_PERIOD*3);
     @(posedge clk) #1 ser_ready <= 1;
-    #(CLK_PERIOD*10);
+    #(CLK_PERIOD*10); 
     @(posedge clk) #1 ser_ready <= 0;
     $finish();
     end
