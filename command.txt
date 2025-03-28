@@ -1,0 +1,5 @@
+cd /projects
+cd aathil/
+[aathil] module load vscode
+[aathil] code .
+bsub -app shared-0002 xterm &

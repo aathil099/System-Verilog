@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : fpga_module
+Version: W-2024.09-SP2
+Date   : Sun Mar 23 09:08:04 2025
+****************************************
+
+Library(s) Used:
+
+    saed32hvt_ss0p7v125c (File: /evprj156/projects/tsmc_32nm/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p7v125c.db)
+
+Number of ports:                            4
+Number of nets:                         24502
+Number of cells:                        19588
+Number of combinational cells:          15867
+Number of sequential cells:              3720
+Number of macros/black boxes:               0
+Number of buf/inv:                       1827
+Number of references:                      53
+
+Combinational area:              51038.214348
+Buf/Inv area:                     7930.817689
+Noncombinational area:           25157.461122
+Macro/Black Box area:                0.000000
+Net Interconnect area:           31009.842138
+
+Total cell area:                 76195.675470
+Total area:                     107205.517609
+1
